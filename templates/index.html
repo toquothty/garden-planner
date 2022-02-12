@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Virginia Zone 7A Garden Planner</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Virginia Zone 7A Garden Planner</h1>
+    {% if vegetables|length < 1 %} 
+    <h4 style="text-align: center">There are no vegetables. Create one below!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Vegetable</th>
+            <th>When to Sow</th>
+            <th>Sow Type</th>
+            <th>How Many Days to Harvest</th>
+            <th>Plant Spacing</th>
+            <th>Seed Depth</th>
+            <th>Sow Window</th>
+            <th>Transplant Window</th>
+            <th>Harvest Window</th>
+        </tr>
+        {% for item in vegetables %}
+        <tr>
+            <td>{{ item.vegetable }}</td>
+            <td>{{ item.sow_timeline }}</td>
+            <td>{{ item.sow_type }}</td>
+            <td>{{ item.harvest_days }}</td>
+            <td>{{ item.plant_spacing }}</td>
+            <td>{{ item.seed_depth }}</td>
+            <td>{{ item.sow_window }}</td>
+            <td>{{ item.transplant_window }}</td>
+            <td>{{ item.harvest_window }}</td>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="vegetable" id="vegetable">
+            <input type="submit" value="Add Vegetable">
+        </form>
+    </div>
+</div>
+{% endblock %}
