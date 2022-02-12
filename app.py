@@ -26,7 +26,7 @@ class Garden_DB(db.Model):
 @app.route("/home", methods=["POST", "GET"])
 def index():
     if request.method == "POST":
-        vegetable_creation = request.form["vegetable"]
+        vegetable_creation = request.form["vegetable"].title()
         new_vegetable = Garden_DB(vegetable=vegetable_creation)
 
         try:
