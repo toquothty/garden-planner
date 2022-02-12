@@ -25,6 +25,11 @@ class Garden_DB(db.Model):
 @app.route("/index", methods=["POST", "GET"])
 @app.route("/home", methods=["POST", "GET"])
 def index():
+    return render_template("index.html")
+
+
+@app.route("/all", methods=["POST", "GET"])
+def all_veggie():
     if request.method == "POST":
         vegetable_creation = request.form["vegetable"].title()
         new_vegetable = Garden_DB(vegetable=vegetable_creation)
@@ -37,7 +42,7 @@ def index():
             return "There was an issue adding your task"
     else:
         vegetables = Garden_DB.query.order_by(Garden_DB.vegetable).all()
-        return render_template("index.html", vegetables=vegetables)
+        return render_template("all.html", vegetables=vegetables)
 
 
 if __name__ == "__main__":
