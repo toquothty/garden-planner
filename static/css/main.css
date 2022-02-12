@@ -7,7 +7,8 @@ body, html {
 
 .content {
     margin: 0 auto;
-    width: 500px;
+    margin-top: 50px;
+    width: 1200px;
     color: black;
 }
 
@@ -27,6 +28,7 @@ td {
 table {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
     border-collapse: collapse;
 }
 
@@ -42,19 +44,17 @@ td {
 
 .form {
     width: 300px;
-    margin: 20px 20px;
-    height: 50px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
     border: none;
     border-radius: 10px;
     font-family: Shanti;
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: center;
 }
 
-.form:focus {
-    outline: none;
-    border: solid 5px #00FFCE;
-}
 
 #content {
     width: 70%;
