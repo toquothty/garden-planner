@@ -10,6 +10,7 @@ def weather():
     time_period = []
     temperature = []
     forecast = []
+    temp_icon = []
     try:
         response = requests.get(url=api_url)
         json_response = json.loads(response.content)
@@ -19,15 +20,17 @@ def weather():
                 current_period = period["name"]
                 temp = period["temperature"]
                 detailed_forecast = period["detailedForecast"]
+                pic = period["icon"]
                 time_period.append(current_period)
                 temperature.append(temp)
                 forecast.append(detailed_forecast)
+                temp_icon.append(pic)
 
     except requests.exceptions.RequestException as err:
         print("HTTP Request failed")
         print(err)
 
-    return time_period, temperature, forecast
+    return time_period, temperature, forecast, temp_icon
 
 
 if __name__ == "__main__":
