@@ -14,9 +14,12 @@
                     <th>How Many Days to Harvest</th>
                     <th>Plant Spacing</th>
                     <th>Seed Depth</th>
-                    <th>Sow Window</th>
-                    <th>Transplant Window</th>
-                    <th>Harvest Window</th>
+                    <th>Sow Window Start</th>
+                    <th>Sow Window End</th>
+                    <th>Transplant Window Start</th>
+                    <th>Transplant Window End</th>
+                    <th>Harvest Window Start</th>
+                    <th>Harvest Window End</th>
                 </thead>
                 {% for item in vegetables %}
                 <tr>
@@ -26,9 +29,12 @@
                     <td>{{ item.harvest_days }}</td>
                     <td>{{ item.plant_spacing }}</td>
                     <td>{{ item.seed_depth }}</td>
-                    <td>{{ item.sow_window }}</td>
-                    <td>{{ item.transplant_window }}</td>
-                    <td>{{ item.harvest_window }}</td>
+                    <td>{{ item.sow_window_start }}</td>
+                    <td>{{ item.sow_window_end }}</td>
+                    <td>{{ item.transplant_window_start }}</td>
+                    <td>{{ item.transplant_window_end }}</td>
+                    <td>{{ item.harvest_window_start }}</td>
+                    <td>{{ item.harvest_window_end }}</td>
                     </td>
                 </tr>
                 {% endfor %}
