@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from weather import weather
@@ -37,7 +37,13 @@ def index():
 
 
 @app.route("/all", methods=["POST", "GET"])
-def all_veggie():
+def display_vegetables():
+    vegetables = Garden_DB.query.order_by(Garden_DB.vegetable).all()
+    return render_template("all.html", vegetables=vegetables)
+
+
+@app.route("/update", methods=["POST", "GET"])
+def update_vegetable():
     if request.method == "POST":
         vegetable_creation = request.form["vegetable"].title()
         new_vegetable = Garden_DB(vegetable=vegetable_creation)
@@ -45,12 +51,11 @@ def all_veggie():
         try:
             db.session.add(new_vegetable)
             db.session.commit()
-            return redirect("/")
+            return redirect("/all")
         except:
             return "There was an issue adding your task"
     else:
-        vegetables = Garden_DB.query.order_by(Garden_DB.vegetable).all()
-        return render_template("all.html", vegetables=vegetables)
+        return render_template("update.html")
 
 
 if __name__ == "__main__":
