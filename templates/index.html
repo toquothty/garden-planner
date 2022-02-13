@@ -7,7 +7,26 @@
 {% block body %}
 <div class="content">
     <h1 style="text-align: center">Virginia Zone 7A Garden Planner</h1>
-    <p>Enter text</p>
+
+    <table>
+        <tr>
+            <th>Time Period</th>
+            <th>Temperature</th>
+            <th>Detailed Forecast</th>
+            <th>temp_icon</th>
+        </tr>
+
+        {% for item in time_period %}
+        <tr>
+            <td>{{item}}</td>
+            <td>{{temperature[loop.index0]}}</td>
+            <td>{{forecast[loop.index0]}}</td>
+            <td><img src={{temp_icon[loop.index0]}}></img></td>
+        </tr>
+        {% endfor %}
+
+
+
 
 
 
