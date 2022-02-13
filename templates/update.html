@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="form">
+    <form action="/update" method="POST">
+        <input type="text" name="vegetable" placeholder="Add Vegetable Here" id="vegetable">
+        <input type="submit" value="Add Vegetable">
+    </form>
+</div>
+
+{% endblock %}
