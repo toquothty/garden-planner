@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from weather import weather
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test.db"
@@ -21,11 +22,18 @@ class Garden_DB(db.Model):
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-@app.route("/", methods=["POST", "GET"])
-@app.route("/index", methods=["POST", "GET"])
-@app.route("/home", methods=["POST", "GET"])
+@app.route("/", methods=["GET"])
+@app.route("/index", methods=["GET"])
+@app.route("/home", methods=["GET"])
 def index():
-    return render_template("index.html")
+    time_period, temperature, forecast, temp_icon = weather()
+    return render_template(
+        "index.html",
+        time_period=time_period,
+        temperature=temperature,
+        forecast=forecast,
+        temp_icon=temp_icon,
+    )
 
 
 @app.route("/all", methods=["POST", "GET"])
