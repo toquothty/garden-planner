@@ -1,16 +1,9 @@
 body, html {
-    text-align: center;
-    font-family: Shanti;
-    color: white;
-    background-color: #A1ABA9;
+    background: #cddedf;
+    color: #f7f7f7;
+    font-family: 'Montserrat', sans-serif;   
 }
 
-.content {
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 1200px;
-    color: black;
-}
 
 th {
     text-align: center;
@@ -26,20 +19,11 @@ td {
 }
 
 table {
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
     border-collapse: collapse;
-}
-
-th {
-    text-align: center;
-    height: 20px;
-}
-
-td {
-    text-align: center;
-    padding: 5px;
 }
 
 .form {
@@ -55,8 +39,4 @@ td {
     text-align: center;
 }
 
-
-#content {
-    width: 70%;
-}
 
