@@ -11,7 +11,6 @@ db = SQLAlchemy(app)
 class Garden_DB(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     vegetable = db.Column(db.String(200), nullable=False)
-    sow_timeline = db.Column(db.String(200))  # When to sow (direct, indoors) data
     sow_type = db.Column(db.String)  # Direct, Indoors, key used to filter later
     harvest_days = db.Column(db.Integer)  # How many days to harvest
     plant_spacing = db.Column(db.Integer)  # Inches between plants
@@ -50,7 +49,6 @@ def display_vegetables():
 def update_vegetable():
     if request.method == "POST":
         vegetable_creation = request.form["vegetable"].title()
-        sow_timeline_creation = request.form["sow_timeline"]
         sow_type_creation = request.form["sow_type"].title()
         harvest_days_creation = request.form["harvest_days"]
         plant_spacing_creation = request.form["plant_spacing"]
@@ -63,7 +61,6 @@ def update_vegetable():
         harvest_window_close = request.form["harvest_window_end"]
         # new_vegetable = Garden_DB(
         #     vegetable=vegetable_creation,
-        #     sow_timeline=sow_timeline_creation,
         #     sow_type=sow_type_creation,
         #     harvest_days=harvest_days_creation,
         #     plant_spacing=plant_spacing_creation,
