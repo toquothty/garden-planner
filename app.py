@@ -4,7 +4,7 @@ from datetime import datetime
 from weather import weather
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 
 
@@ -61,20 +61,20 @@ def update_vegetable():
         transplant_window_close = request.form["transplant_window_end"]
         harvest_window_begin = request.form["harvest_window_start"]
         harvest_window_close = request.form["harvest_window_end"]
-        new_vegetable = Garden_DB(
-            vegetable=vegetable_creation,
-            sow_timeline=sow_timeline_creation,
-            sow_type=sow_type_creation,
-            harvest_days=harvest_days_creation,
-            plant_spacing=plant_spacing_creation,
-            seed_depth=seed_depth_creation,
-            sow_window_start=sow_window_begin,
-            sow_window_end=sow_window_close,
-            transplant_window_start=transplant_window_begin,
-            transplant_window_end=transplant_window_close,
-            harvest_window_start=harvest_window_begin,
-            harvest_window_end=harvest_window_close,
-        )
+        # new_vegetable = Garden_DB(
+        #     vegetable=vegetable_creation,
+        #     sow_timeline=sow_timeline_creation,
+        #     sow_type=sow_type_creation,
+        #     harvest_days=harvest_days_creation,
+        #     plant_spacing=plant_spacing_creation,
+        #     seed_depth=seed_depth_creation,
+        #     sow_window_start=sow_window_begin,
+        #     sow_window_end=sow_window_close,
+        #     transplant_window_start=transplant_window_begin,
+        #     transplant_window_end=transplant_window_close,
+        #     harvest_window_start=harvest_window_begin,
+        #     harvest_window_end=harvest_window_close,
+        # )
 
         try:
             db.session.add(new_vegetable)
