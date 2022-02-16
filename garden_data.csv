@@ -1,0 +1,3 @@
+vegetable,sow_type,harvest_days,plant_spacing,seed_depth,sow_window_start,sow_window_end,transplant_window_start,transplant_window_end,harvest_window_start,harvest_window_end
+Asparagus,Direct,,,,,,,,,
+Broccolli,Transplant,70,12,0.5,,,2022-03-12,2022-05-05,2022-05-25,2022-07-15
