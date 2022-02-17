@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime, date
 from weather import weather
 
 # Establish basic global paramters
@@ -89,6 +89,40 @@ def get_user_vegetable(get_vegetable):
     )
 
 
+# Created a URL that will query/filter the database and show items with
+# vegetables that have windows based on the current date
+# @app.route("/todays-tasks", methods=["GET"])
+def display_tasks():
+    today = date.today()
+    vegetable_list = Garden_DB.query.order_by(Garden_DB.vegetable).all()
+
+    for item in vegetable_list:
+        sow_type = item.sow_type
+        if sow_type == "Direct":
+            window_start = item.sow_window_start
+            window_end = item.sow_window_end
+            window_start_transfrom = datetime.strptime(window_start, "%Y-%m-%d")
+            window_end_transfrom = datetime.strptime(window_end, "%Y-%m-%d")
+        else:
+            window_start = item.transplant_window_start
+            window_end = item.transplant_window_end
+            window_start_transfrom = datetime.strptime(window_start, "%Y-%m-%d")
+            window_end_transfrom = datetime.strptime(window_end, "%Y-%m-%d")
+        harvest_window_start = item.harvest_window_start
+        harvest_window_end = item.harvest_window_end
+        harvest_start_transfrom = datetime.strptime(harvest_window_start, "%Y-%m-%d")
+        harvest_end_transfrom = datetime.strptime(harvest_window_end, "%Y-%m-%d")
+
+        print(item.vegetable)
+        print(sow_type)
+        print(
+            f"Sow/Transplant Dates:  {window_start_transfrom}, {window_end_transfrom}"
+        )
+        print(f"Harvest Dates:  {harvest_start_transfrom}, {harvest_end_transfrom}")
+
+    # return render_template("todays-tasks.html", vegetable=vegetable_list)
+
+
 # Removing access to this method until login features are added.
 # @app.route("/update", methods=["POST", "GET"])
 # def update_vegetable():
@@ -128,5 +162,7 @@ def get_user_vegetable(get_vegetable):
 #         return render_template("update.html")
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
+display_tasks()
