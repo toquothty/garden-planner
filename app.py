@@ -3,11 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from weather import weather
 
+# Establish basic global paramters
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 
-
+# Establish the database class/model
 class Garden_DB(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     vegetable = db.Column(db.String(200), nullable=False)
@@ -22,13 +23,14 @@ class Garden_DB(db.Model):
     harvest_window_start = db.Column(db.String)  # Window to harvest
     harvest_window_end = db.Column(db.String)  # Window to harvest
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    # db.create_all
 
 
+# Establish the homepage URLs
 @app.route("/", methods=["GET"])
 @app.route("/index", methods=["GET"])
 @app.route("/home", methods=["GET"])
 def index():
+    # Utilize weather.py to grab the forecast for the next three time periods as defined by NWS
     time_period, temperature, forecast, temp_icon = weather()
     return render_template(
         "index.html",
@@ -39,31 +41,40 @@ def index():
     )
 
 
+# Create a page to list all vegetables listed in the database
+# Utilize this page to link to individual vegetable detail URLs
 @app.route("/list", methods=["GET"])
 def display_vegetables():
     vegetables = Garden_DB.query.order_by(Garden_DB.id).all()
     return render_template("list.html", vegetables=vegetables)
 
 
+# Use jinja templating to dynamically build URL based on vegetable clicked in /list
 @app.route("/list/<get_vegetable>", methods=["GET"])
 def get_user_vegetable(get_vegetable):
+    # Uppercase the vegetable entry from the URL call to match case in DB
     transform_vegetable = get_vegetable.title()
+    # Query the database to return the database row data based on vegetable
     transform_vegetable = (
         db.session.query(Garden_DB).filter_by(vegetable=transform_vegetable).first()
     )
+    # Grab the appropriate column data for the row called
     vegetable = transform_vegetable.vegetable
     sow_type = transform_vegetable.sow_type
     harvest_days = transform_vegetable.harvest_days
     plant_spacing = transform_vegetable.plant_spacing
     seed_depth = transform_vegetable.seed_depth
+    # If direct sow type, we'll feed the sow window dates
     if sow_type == "Direct":
         window_start = transform_vegetable.sow_window_start
         window_end = transform_vegetable.sow_window_end
+    # If transplant type, we'll feed the transplant window dates
     else:
         window_start = transform_vegetable.transplant_window_start
         window_end = transform_vegetable.transplant_window_end
     harvest_window_start = transform_vegetable.harvest_window_start
     harvest_window_end = transform_vegetable.harvest_window_end
+
     return render_template(
         "vegetable.html",
         vegetable=vegetable,
@@ -79,7 +90,6 @@ def get_user_vegetable(get_vegetable):
 
 
 # Removing access to this method until login features are added.
-
 # @app.route("/update", methods=["POST", "GET"])
 # def update_vegetable():
 #     if request.method == "POST":

@@ -12,10 +12,13 @@ def weather():
     forecast = []
     temp_icon = []
     try:
+        # Initial call and store of response
         response = requests.get(url=api_url)
         json_response = json.loads(response.content)
 
+        # Periods is a time period as defined by NWS's API
         for period in json_response["properties"]["periods"]:
+            # Gather three periods of forecast data and append to previously defined list
             if period["number"] <= 3:
                 current_period = period["name"]
                 temp = period["temperature"]
@@ -30,6 +33,7 @@ def weather():
         print("HTTP Request failed")
         print(err)
 
+    # Return built lists to be used in app.py
     return time_period, temperature, forecast, temp_icon
 
 
