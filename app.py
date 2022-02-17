@@ -39,13 +39,13 @@ def index():
     )
 
 
-@app.route("/all", methods=["POST", "GET"])
+@app.route("/list", methods=["GET"])
 def display_vegetables():
     vegetables = Garden_DB.query.order_by(Garden_DB.vegetable).all()
-    return render_template("all.html", vegetables=vegetables)
+    return render_template("list.html", vegetables=vegetables)
 
 
-@app.route("/vegetable/<get_vegetable>", methods=["GET"])
+@app.route("/list/<get_vegetable>", methods=["GET"])
 def get_user_vegetable(get_vegetable):
     transform_vegetable = get_vegetable.title()
     transform_vegetable = (
