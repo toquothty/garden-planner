@@ -45,6 +45,39 @@ def display_vegetables():
     return render_template("all.html", vegetables=vegetables)
 
 
+@app.route("/vegetable/<get_vegetable>", methods=["GET"])
+def get_user_vegetable(get_vegetable):
+    transform_vegetable = get_vegetable.title()
+    transform_vegetable = (
+        db.session.query(Garden_DB).filter_by(vegetable=transform_vegetable).first()
+    )
+    vegetable = transform_vegetable.vegetable
+    sow_type = transform_vegetable.sow_type
+    harvest_days = transform_vegetable.harvest_days
+    plant_spacing = transform_vegetable.plant_spacing
+    seed_depth = transform_vegetable.seed_depth
+    if sow_type == "Direct":
+        window_start = transform_vegetable.sow_window_start
+        window_end = transform_vegetable.sow_window_end
+    else:
+        window_start = transform_vegetable.transplant_window_start
+        window_end = transform_vegetable.transplant_window_end
+    harvest_window_start = transform_vegetable.harvest_window_start
+    harvest_window_end = transform_vegetable.harvest_window_end
+    return render_template(
+        "vegetable.html",
+        vegetable=vegetable,
+        sow_type=sow_type,
+        harvest_days=harvest_days,
+        plant_spacing=plant_spacing,
+        seed_depth=seed_depth,
+        window_start=window_start,
+        window_end=window_end,
+        harvest_window_start=harvest_window_start,
+        harvest_window_end=harvest_window_end,
+    )
+
+
 # Removing access to this method until login features are added.
 
 # @app.route("/update", methods=["POST", "GET"])
