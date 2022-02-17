@@ -41,7 +41,7 @@ def index():
 
 @app.route("/list", methods=["GET"])
 def display_vegetables():
-    vegetables = Garden_DB.query.order_by(Garden_DB.vegetable).all()
+    vegetables = Garden_DB.query.order_by(Garden_DB.id).all()
     return render_template("list.html", vegetables=vegetables)
 
 
