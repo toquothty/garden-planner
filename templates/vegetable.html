@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Vegetable</h1>
+            <hr>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <h5 class="card-title">{{ vegetable }}</h5>
+                    <hr>
+                    <p style="color: blue">{{ sow_type }}</p>
+                    <p class="text-muted">{{ harvest_days }}</p>
+                    <p class="text-muted">{{ plant_spacing }}</p>
+                    <p class="text-muted">{{ seed_depth }}</p>
+                    <p class="text-muted">{{ window_start }}</p>
+                    <p class="text-muted">{{ window_end }}</p>
+                    <p class="text-muted">{{ harvest_window_start }}</p>
+                    <p class="text-muted">{{ harvest_window_end }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}
