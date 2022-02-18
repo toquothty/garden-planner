@@ -10,13 +10,16 @@
                 <div class="card-body">
                     {% for key, value in tasks.items() %}
                     {% if value == "Direct" %}
-                    <h5 class="card-title">{{ key}} can be Direct Sown Today</h5>
+                    <a ref="/list/{{ key }}" class="btn btn-info" role="button"> {{ key }} can be Direct Sown Today
+                    </a>
                     <hr>
                     {% elif value == "Transplant" %}
-                    <h5 class="card-title">{{ key}} can be Transplanted Today</h5>
+                    <a ref="/list/{{ key }}" class="btn btn-info" role="button"> {{ key }} can be Transplanted Today
+                    </a>
                     <hr>
                     {% elif value == "Harvest" %}
-                    <h5 class="card-title">{{ key}} can be Harvested Today</h5>
+                    <a ref="/list/{{ key }}" class="btn btn-info" role="button"> {{ key }} can be Harvested Today
+                    </a>
                     <hr>
 
                     {% endif %}
