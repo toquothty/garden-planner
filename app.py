@@ -91,40 +91,44 @@ def get_user_vegetable(get_vegetable):
 
 # Created a URL that will query/filter the database and show items with
 # vegetables that have windows based on the current date
-# @app.route("/todays-tasks", methods=["GET"])
+@app.route("/todays-tasks", methods=["GET"])
 def display_tasks():
     today = date.today()
     vegetable_list = Garden_DB.query.order_by(Garden_DB.vegetable).all()
+
+    render_task_dict = {}
 
     for item in vegetable_list:
         sow_type = item.sow_type
         if sow_type == "Direct":
             window_start = item.sow_window_start
             window_end = item.sow_window_end
-            window_start_transfrom = datetime.strptime(window_start, "%Y-%m-%d")
-            window_end_transfrom = datetime.strptime(window_end, "%Y-%m-%d")
+            window_start_transfrom = datetime.strptime(window_start, "%Y-%m-%d").date()
+            window_end_transfrom = datetime.strptime(window_end, "%Y-%m-%d").date()
         else:
             window_start = item.transplant_window_start
             window_end = item.transplant_window_end
-            window_start_transfrom = datetime.strptime(window_start, "%Y-%m-%d")
-            window_end_transfrom = datetime.strptime(window_end, "%Y-%m-%d")
+            window_start_transfrom = datetime.strptime(window_start, "%Y-%m-%d").date()
+            window_end_transfrom = datetime.strptime(window_end, "%Y-%m-%d").date()
         harvest_window_start = item.harvest_window_start
         harvest_window_end = item.harvest_window_end
-        harvest_start_transfrom = datetime.strptime(harvest_window_start, "%Y-%m-%d")
-        harvest_end_transfrom = datetime.strptime(harvest_window_end, "%Y-%m-%d")
+        harvest_start_transfrom = datetime.strptime(
+            harvest_window_start, "%Y-%m-%d"
+        ).date()
+        harvest_end_transfrom = datetime.strptime(harvest_window_end, "%Y-%m-%d").date()
 
-        print(item.vegetable)
-        print(sow_type)
-        print(
-            f"Sow/Transplant Dates:  {window_start_transfrom}, {window_end_transfrom}"
-        )
-        print(f"Harvest Dates:  {harvest_start_transfrom}, {harvest_end_transfrom}")
+        if window_start_transfrom <= today <= window_end_transfrom:
+            render_task_dict[item.vegetable] = sow_type
 
-    # return render_template("todays-tasks.html", vegetable=vegetable_list)
+        elif harvest_start_transfrom <= today <= harvest_end_transfrom:
+            render_task_dict[item.vegetable] = "Harvest"
+
+    return render_template("todays-tasks.html", tasks=render_task_dict)
 
 
 # Removing access to this method until login features are added.
 # @app.route("/update", methods=["POST", "GET"])
+
 # def update_vegetable():
 #     if request.method == "POST":
 #         vegetable_creation = request.form["vegetable"].title()
@@ -162,7 +166,5 @@ def display_tasks():
 #         return render_template("update.html")
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-display_tasks()
+if __name__ == "__main__":
+    app.run(debug=True)
