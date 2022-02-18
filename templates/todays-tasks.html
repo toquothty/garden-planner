@@ -8,23 +8,19 @@
             <h1>Things to do today!</h1>
             <div class="card">
                 <div class="card-body">
-                    {% for item in vegetable %}
-                    <h5 class="card-title">{{ vegetable }}</h5>
+                    {% for key, value in tasks.items() %}
+                    {% if value == "Direct" %}
+                    <h5 class="card-title">{{ key}} can be Direct Sown Today</h5>
                     <hr>
-                    <p class="text">Sow Type: {{ sow_type }}</p>
-                    <p class="text">Harvest Days: {{ harvest_days }}</p>
-                    <p class="text-muted">Plant Spacing: {{ plant_spacing }} Inches</p>
-                    <p class="text-muted">Seed Planting Depth: {{ seed_depth }} Inches</p>
-                    {% endfor %}
-                    {% if sow_type == "Direct" %}
-                    <p class="text-muted">Direct Window Sow Start: {{ window_start }}</p>
-                    <p class="text-muted">Direct Window Sow End: {{ window_end }}</p>
-                    {% else %}
-                    <p class="text-muted">Transplant Start: {{ window_start }}</p>
-                    <p class="text-muted">Transplant Window End: {{ window_end }}</p>
+                    {% elif value == "Transplant" %}
+                    <h5 class="card-title">{{ key}} can be Transplanted Today</h5>
+                    <hr>
+                    {% elif value == "Harvest" %}
+                    <h5 class="card-title">{{ key}} can be Harvested Today</h5>
+                    <hr>
+
                     {% endif %}
-                    <p class="text-muted">Harvest Window Start: {{ harvest_window_start }}</p>
-                    <p class="text-muted">Harvest Window End: {{ harvest_window_end }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
