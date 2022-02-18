@@ -2,19 +2,19 @@
 
 
 {% block body %}
-<div class="content">
-    <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered border-primary align-middle">
-            <thead class="table-light">
-                <th>Vegetables</th>
-            </thead>
-            {% for item in vegetables %}
-            <tr>
-                <td><a href="/list/{{item.vegetable}}">{{ item.vegetable
-                        }}</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-</div>
-{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Vegetable Listing</h1>
+            <div class="card">
+                <div class="card-body">
+                    {% for item in vegetables %}
+                    <a ref="/list/{{ key }}" class="btn btn-info" role="button">{{ item.vegetable
+                        }}</a>
+                    <hr>
+
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {% endblock %}
