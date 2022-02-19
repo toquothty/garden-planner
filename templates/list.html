@@ -2,19 +2,13 @@
 
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Vegetable Listing</h1>
-            <div class="card">
-                <div class="card-body">
-                    {% for item in vegetables %}
-                    <a href="/list/{{ item.vegetable }}" class="btn btn-info" role="button">{{ item.vegetable
-                        }}</a>
-                    <hr>
-
-                    {% endfor %}
-                    </table>
-                </div>
-            </div>
-            {% endblock %}
+<section class="container">
+    <h1>Vegetable Listing</h1>
+    {% for item in vegetables %}
+    <div class="card">
+        <a href="/list/{{ item.vegetable }}" class="btn btn-info" role="button">{{ item.vegetable
+            }}</a>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
