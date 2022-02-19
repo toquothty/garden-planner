@@ -2,23 +2,29 @@
 
 
 {% block body %}
-<div class="table-responsive">
-    <table class="table table-striped table-hover table-bordered border-primary align-middle">
-        <thead class="table-light">
-            <th>Time Period</th>
-            <th>Temperature</th>
-            <th>Detailed Forecast</th>
-            <th>temp_icon</th>
-        </thead>
+
+<section class="container">
+    <h1>Forecast</h1>
+</section>
+<section class="container">
+    <div class="row">
         {% for item in time_period %}
-        <tr>
-            <td>{{item}}</td>
-            <td>{{temperature[loop.index0]}}</td>
-            <td>{{forecast[loop.index0]}}</td>
-            <td><img src={{temp_icon[loop.index0]}}></img></td>
-        </tr>
+        <div class="col-md-4">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <svg class="card-img-top" width="100%" height="225" xmlns="{{temp_icon[loop.index0]}}" role="img"
+                    aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                        dy=".3em">Thumbnail</text>
+                </svg>
+                <div class="card-body">
+                    <h2>{{item}}, {{temperature[loop.index0]}} F</h2>
+                    <p class="card-text">{{forecast[loop.index0]}}</p>
+                </div>
+                <div><img src={{temp_icon[loop.index0]}}></img></div>
+            </div>
+        </div>
         {% endfor %}
-
-</div>
-
+    </div>
+</section>
 {% endblock %}
