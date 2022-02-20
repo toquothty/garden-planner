@@ -6,15 +6,23 @@
     <h1>Vegetable Listing</h1>
     <hr>
 </section>
-<section class="flex-container">
-
-    {% for item in vegetables %}
-    <div class="card">
-        <a href="/list/{{ item.vegetable }}" class="btn btn-info" role="button">{{ item.vegetable
-            }}</a>
+<section class="container">
+    <div class="row">
+        {% for item in vegetables %}
+        <div class="col-sm-4">
+            <div class="h-90 p-5 bg-light border border-primary rounded-3">
+                <img class="rounded-circle" src="{{item.vegetable_picture_url}}" width="100%" height="100%"
+                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                </img>
+                <div class="card-body">
+                    <a href="/list/{{ item.vegetable }}" class="btn btn-info" role="'button">{{ item.vegetable
+                        }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    </div>
-    {% endfor %}
 </section>
 
 {% endblock %}
