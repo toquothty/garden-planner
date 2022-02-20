@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<section class="container">
+    <h1>Vegetable Listing</h1>
+    <hr>
+</section>
+<section class="flex-container">
+
+    {% for item in vegetables %}
+    <div class="card">
+        <a href="/list/{{ item.vegetable }}" class="btn btn-info" role="button">{{ item.vegetable
+            }}</a>
+    </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

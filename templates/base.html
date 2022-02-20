@@ -15,23 +15,25 @@
 
     <title>Central VA Garden Planner
     </title>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d2dbe0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" alt="" width="30"
-                    height="24" class="d-inline-block align-text-top">
-                Central VA Garden Planner
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" alt="" width="34"
+                    height="28" class="d-inline-block align-text-top">
+                VA Garden Planner
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+            <nav class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <nav class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-                    <a class="nav-link" href="{{ url_for('display_vegetables') }}">All Vegetables</a>
-                    <a class="nav-link" href="{{ url_for('update_vegetable') }}">Update Vegetables</a>
-                </div>
+                    <a class="nav-link active" href="{{ url_for('display_vegetables') }}">All Vegetables</a>
+                    <a class="nav-link active" href="{{ url_for('display_tasks') }}">Things to do</a>
+                </nav>
+            </nav>
+        </div>
     </nav>
 </head>
 

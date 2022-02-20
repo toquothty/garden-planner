@@ -28,19 +28,15 @@ class Garden_DB(Base):
     date_created = Column(DateTime, default=datetime.utcnow)
 
 
+# Create the database table
 Base.metadata.create_all(engine)
-
+# Establish a persistent session function
 Session = sessionmaker(bind=engine)
 
 
-# def prepare_row(row):
-#     row["vegetable"] = parse_none(row["vegetable"])
-#     return Garden_DB(**row)
-
-
 with open("garden_data.csv", encoding="utf-8", newline="") as csv_file:
+    # Read in csv, establish session to Database, loop through rows in csv
     csvreader = csv.DictReader(csv_file)
-    # vegetable = [prepare_row(row) for row in csvreader]
     session = Session()
     for row in csvreader:
         vegetable = row["vegetable"]
@@ -55,6 +51,7 @@ with open("garden_data.csv", encoding="utf-8", newline="") as csv_file:
         harvest_window_start = row["harvest_window_start"]
         harvest_window_end = row["harvest_window_end"]
 
+        # While in loop, stage column/row data
         create_vegetable = Garden_DB(
             vegetable=vegetable,
             sow_type=sow_type,
@@ -68,6 +65,6 @@ with open("garden_data.csv", encoding="utf-8", newline="") as csv_file:
             harvest_window_start=harvest_window_start,
             harvest_window_end=harvest_window_end,
         )
-
+        # Stage and commit per vegetable in loop
         session.add(create_vegetable)
         session.commit()
