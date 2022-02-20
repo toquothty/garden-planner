@@ -25,6 +25,7 @@ class Garden_DB(Base):
     transplant_window_end = Column(String)  # Window to transplant if applicable
     harvest_window_start = Column(String)  # Window to harvest
     harvest_window_end = Column(String)  # Window to harvest
+    vegetable_picture_url = Column(String)  # Public URL for vegetable picture
     date_created = Column(DateTime, default=datetime.utcnow)
 
 
@@ -50,6 +51,7 @@ with open("garden_data.csv", encoding="utf-8", newline="") as csv_file:
         transplant_window_end = row["transplant_window_end"]
         harvest_window_start = row["harvest_window_start"]
         harvest_window_end = row["harvest_window_end"]
+        vegetable_picture_url = row["vegetable_picture_url"]
 
         # While in loop, stage column/row data
         create_vegetable = Garden_DB(
@@ -64,6 +66,7 @@ with open("garden_data.csv", encoding="utf-8", newline="") as csv_file:
             transplant_window_end=transplant_window_end,
             harvest_window_start=harvest_window_start,
             harvest_window_end=harvest_window_end,
+            vegetable_picture_url=vegetable_picture_url,
         )
         # Stage and commit per vegetable in loop
         session.add(create_vegetable)
