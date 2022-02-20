@@ -22,6 +22,7 @@ class Garden_DB(db.Model):
     transplant_window_end = db.Column(db.String)  # Window to transplant if applicable
     harvest_window_start = db.Column(db.String)  # Window to harvest
     harvest_window_end = db.Column(db.String)  # Window to harvest
+    vegetable_picture_url = db.Column(db.String)  # Public URL for vegetable picture
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
 
@@ -167,4 +168,4 @@ def display_tasks():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
