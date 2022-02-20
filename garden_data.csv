@@ -1,38 +1,38 @@
-vegetable,sow_type,harvest_days,plant_spacing,seed_depth,sow_window_start,sow_window_end,transplant_window_start,transplant_window_end,harvest_window_start,harvest_window_end
-Asparagus,Direct,30,12,0.5,2022-03-15,2022-04-25,,,2022-04-25,2022-06-25
-Bush Beans,Direct,50,1,1,2022-04-15,2022-08-05,,,2022-06-05,2022-10-25
-Pole Beans,Direct,60,4,1,2022-04-15,2022-07-15,,,2022-06-15,2022-10-25
-Lima Beans,Direct,80,6,1,2022-04-25,2022-07-25,,,2022-07-25,2022-10-25
-Beets,Direct,70,2,1,2022-03-05,2022-05-05,,,2022-05-15,2022-07-05
-Broccolli,Transplant,70,12,0.5,,,2022-03-15,2022-05-05,2022-05-25,2022-07-15
-Brussels Sprouts,Transplant,90,18,0.5,,,2022-07-25,2022-08-15,2022-10-25,2022-12-05
-Cabbage,Transplant,50,12,0.5,,,2022-03-15,2022-05-05,2022-05-05,2022-07-05
-Chinese Cabbage,Transplant,70,4,0.5,,,2022-03-15,2022-05-05,2022-05-25,2022-07-05
-Carrots,Direct,60,1.5,0.5,2022-03-05,2022-04-25,,,2022-05-05,2022-07-15
-Cauliflower,Transplant,70,12,0.5,,,2022-03-15,2022-04-15,2022-05-25,2022-06-25
-Swiss Chard,Direct,60,6,0.5,2022-03-15,2022-05-05,,,2022-05-05,2022-09-15
-Kale,Direct,60,12,0.5,2022-02-25,2022-04-25,,,2022-04-25,2022-06-25
-Cucumbers,Direct,50,12,1,2022-04-15,2022-06-05,,,2022-07-25,2022-10-25
-Eggplant,Transplant,80,18,0.25,,,2022-04-15,2022-07-05,2022-07-05,2022-10-15
-Kohlrabi,Direct,60,4,0.5,2022-03-05,2022-04-25,,,2022-05-05,2022-06-15
-Leeks,Transplant,80,4,0.5,,,2022-03-15,2022-04-25,2022-06-05,2022-07-25
-Lettuce,Transplant,50,6,0.5,,,2022-03-15,2022-05-15,2022-05-05,2022-06-25
-Muskmelons,Direct,70,24,1,2022-04-15,2022-07-05,,,2022-06-25,2022-10-25
-Mustard,Direct,40,2,0.5,2022-02-25,2022-04-25,,,2022-04-15,2022-06-15
-Okra,Direct,80,12,1,2022-04-25,2022-07-25,,,2022-07-15,2022-10-25
-Onions,Transplant,70,2,1,,,2022-02-25,2022-05-05,2022-06-05,2022-08-15
-Peas,Direct,40,2,0.5,2022-02-25,2022-04-05,,,2022-04-25,2022-06-15
-Peppers,Transplant,70,12,0.25,,,2022-04-15,2022-07-25,2022-06-25,2022-11-05
-Potatoes,Direct,80,10,4,2022-03-15,2022-05-25,,,2022-05-25,2022-10-25
-Pumpkins,Direct,80,24,0.5,2022-04-25,2022-07-05,,,2022-07-15,2022-11-05
-Radish,Direct,40,1,0.5,2022-02-25,2022-05-05,,,2022-04-05,2022-06-05
-Rutabaga,Direct,80,3,0.5,2022-07-25,2022-08-25,,,2022-10-15,2022-12-31
-Southern Pea,Direct,70,3,0.75,2022-05-05,2022-08-05,,,2022-07-15,2022-11-05
-Spinach,Direct,40,4,0.5,2022-02-25,2022-04-15,,,2022-04-05,2022-06-05
-Summer Squash,Direct,40,18,2,2022-04-15,2022-08-25,,,2022-05-25,2022-10-25
-Winter Squash,Direct,90,24,1,2022-04-05,2022-07-05,,,2022-07-05,2022-10-25
-Sweet Corn,Direct,70,6,2,2022-04-05,2022-07-25,,,2022-06-15,2022-10-25
-Sweet Potato,Direct,80,9,3,2022-04-25,2022-07-15,,,2022-08-15,2022-10-25
-Tomatoes,Transplant,60,18,0.25,,,2022-04-15,2022-07-25,2022-06-15,2022-10-25
-Turnips,Direct,60,2,0.5,2022-03-05,2022-04-25,,,2022-05-05,2022-06-15
-Watermelom,Direct,70,36,0.5,2022-04-25,2022-07-15,,,2022-07-05,2022-10-25
+vegetable,sow_type,harvest_days,plant_spacing,seed_depth,sow_window_start,sow_window_end,transplant_window_start,transplant_window_end,harvest_window_start,harvest_window_end,vegetable_picture_url
+Asparagus,Direct,30,12,0.5,2022-03-15,2022-04-25,,,2022-04-25,2022-06-25,https://image.shutterstock.com/image-photo/asparagus-fresh-pickled-green-bunches-600w-1673452201.jpg
+Bush Beans,Direct,50,1,1,2022-04-15,2022-08-05,,,2022-06-05,2022-10-25,https://image.shutterstock.com/image-photo/row-green-bush-beans-ready-600w-1678201873.jpg
+Pole Beans,Direct,60,4,1,2022-04-15,2022-07-15,,,2022-06-15,2022-10-25,https://image.shutterstock.com/image-photo/young-stalks-string-bean-on-600w-105358067.jpg
+Lima Beans,Direct,80,6,1,2022-04-25,2022-07-25,,,2022-07-25,2022-10-25,https://image.shutterstock.com/image-photo/healthy-fresh-legumes-new-harvest-600w-709616776.jpg
+Beets,Direct,70,2,1,2022-03-05,2022-05-05,,,2022-05-15,2022-07-05,https://image.shutterstock.com/image-photo/fresh-harvested-beetroots-wooden-crate-600w-374278960.jpg
+Broccolli,Transplant,70,12,0.5,,,2022-03-15,2022-05-05,2022-05-25,2022-07-15,https://image.shutterstock.com/image-photo/raw-broccoli-farm-green-leaves-600w-558877462.jpg
+Brussels Sprouts,Transplant,90,18,0.5,,,2022-07-25,2022-08-15,2022-10-25,2022-12-05,https://image.shutterstock.com/image-photo/bunch-brussels-sprouts-brunch-on-600w-435182077.jpg
+Cabbage,Transplant,50,12,0.5,,,2022-03-15,2022-05-05,2022-05-05,2022-07-05,https://image.shutterstock.com/image-photo/background-witn-big-cabbage-field-600w-1841148766.jpg
+Chinese Cabbage,Transplant,70,4,0.5,,,2022-03-15,2022-05-05,2022-05-25,2022-07-05,https://image.shutterstock.com/image-photo/fresh-chinese-cabbage-basket-on-600w-231963535.jpg
+Carrots,Direct,60,1.5,0.5,2022-03-05,2022-04-25,,,2022-05-05,2022-07-15,https://image.shutterstock.com/image-photo/beautiful-fresh-market-organic-carrots-600w-1142334227.jpg
+Cauliflower,Transplant,70,12,0.5,,,2022-03-15,2022-04-15,2022-05-25,2022-06-25,https://image.shutterstock.com/image-photo/cauliflower-grows-organic-soil-garden-600w-1572221011.jpg
+Swiss Chard,Direct,60,6,0.5,2022-03-15,2022-05-05,,,2022-05-05,2022-09-15,https://image.shutterstock.com/image-photo/swiss-chard-growing-600w-740335093.jpg
+Kale,Direct,60,12,0.5,2022-02-25,2022-04-25,,,2022-04-25,2022-06-25,https://image.shutterstock.com/image-photo/man-presenting-basket-fresh-kale-600w-1851298633.jpg
+Cucumbers,Direct,50,12,1,2022-04-15,2022-06-05,,,2022-07-25,2022-10-25,https://image.shutterstock.com/image-photo/long-cucumbers-on-branch-greenhouse-600w-1019080756.jpg
+Eggplant,Transplant,80,18,0.25,,,2022-04-15,2022-07-05,2022-07-05,2022-10-15,https://image.shutterstock.com/image-photo/eggplant-culture-greenhouse-600w-1043958175.jpg
+Kohlrabi,Direct,60,4,0.5,2022-03-05,2022-04-25,,,2022-05-05,2022-06-15,https://image.shutterstock.com/image-photo/green-kohlrabi-turnip-garden-bed-600w-1737551249.jpg
+Leeks,Transplant,80,4,0.5,,,2022-03-15,2022-04-25,2022-06-05,2022-07-25,https://image.shutterstock.com/image-photo/raw-green-organic-leeks-ready-600w-555301678.jpg
+Lettuce,Transplant,50,6,0.5,,,2022-03-15,2022-05-15,2022-05-05,2022-06-25,https://image.shutterstock.com/image-photo/lettuce-harvest-rainbow-colorful-colourful-600w-381501688.jpg
+Muskmelons,Direct,70,24,1,2022-04-15,2022-07-05,,,2022-06-25,2022-10-25,https://image.shutterstock.com/image-photo/womans-hands-holding-fresh-muskmelon-600w-1211217430.jpg
+Mustard Greens,Direct,40,2,0.5,2022-02-25,2022-04-25,,,2022-04-15,2022-06-15,https://image.shutterstock.com/image-photo/organic-raw-mustard-greens-on-600w-202052146.jpg
+Okra,Direct,80,12,1,2022-04-25,2022-07-25,,,2022-07-15,2022-10-25,https://image.shutterstock.com/image-photo/lady-fingers-okra-vegetable-on-600w-1156129609.jpg
+Onions,Transplant,70,2,1,,,2022-02-25,2022-05-05,2022-06-05,2022-08-15,https://image.shutterstock.com/image-photo/different-onions-on-wood-600w-161066597.jpg
+Peas,Direct,40,2,0.5,2022-02-25,2022-04-05,,,2022-04-25,2022-06-15,https://image.shutterstock.com/image-photo/selective-focus-on-fresh-bright-600w-776414326.jpg
+Peppers,Transplant,70,12,0.25,,,2022-04-15,2022-07-25,2022-06-25,2022-11-05,https://image.shutterstock.com/image-photo/chilipepper-hot-pepper-korean-pepperred-600w-681869419.jpg
+Potatoes,Direct,80,10,4,2022-03-15,2022-05-25,,,2022-05-25,2022-10-25,https://image.shutterstock.com/image-photo/fresh-organic-potatoes-field-600w-1025684044.jpg
+Pumpkins,Direct,80,24,0.5,2022-04-25,2022-07-05,,,2022-07-15,2022-11-05,https://image.shutterstock.com/image-photo/pumpkin-growing-vegetable-garden-autumn-600w-1182328114.jpg
+Radish,Direct,40,1,0.5,2022-02-25,2022-05-05,,,2022-04-05,2022-06-05,https://image.shutterstock.com/image-photo/freshly-harvested-purple-colorful-radish-600w-643139416.jpg
+Rutabaga,Direct,80,3,0.5,2022-07-25,2022-08-25,,,2022-10-15,2022-12-31,https://image.shutterstock.com/image-photo/close-rutabaga-rain-brassica-napobrassica-600w-1654065742.jpg
+Southern Pea,Direct,70,3,0.75,2022-05-05,2022-08-05,,,2022-07-15,2022-11-05,https://image.shutterstock.com/image-photo/pea-plant-full-field-peas-600w-2122029647.jpg
+Spinach,Direct,40,4,0.5,2022-02-25,2022-04-15,,,2022-04-05,2022-06-05,https://image.shutterstock.com/image-photo/rows-green-spinach-on-field-600w-1784260031.jpg
+Summer Squash,Direct,40,18,2,2022-04-15,2022-08-25,,,2022-05-25,2022-10-25,https://image.shutterstock.com/image-photo/summer-squash-growing-garden-600w-1809371962.jpg
+Winter Squash,Direct,90,24,1,2022-04-05,2022-07-05,,,2022-07-05,2022-10-25,https://image.shutterstock.com/image-photo/winter-squash-collection-autumn-decoration-600w-469502444.jpg
+Sweet Corn,Direct,70,6,2,2022-04-05,2022-07-25,,,2022-06-15,2022-10-25,https://image.shutterstock.com/image-photo/ripe-corn-field-farmland-wait-600w-497906839.jpg
+Sweet Potato,Direct,80,9,3,2022-04-25,2022-07-15,,,2022-08-15,2022-10-25,https://image.shutterstock.com/image-photo/dug-bush-sweet-potato-shovel-600w-1195545163.jpg
+Tomatoes,Transplant,60,18,0.25,,,2022-04-15,2022-07-25,2022-06-15,2022-10-25,https://image.shutterstock.com/image-photo/ripe-organic-tomatoes-garden-ready-600w-591110372.jpg
+Turnips,Direct,60,2,0.5,2022-03-05,2022-04-25,,,2022-05-05,2022-06-15,https://image.shutterstock.com/image-photo/turnips-basket-600w-1138898837.jpg
+Watermelom,Direct,70,36,0.5,2022-04-25,2022-07-15,,,2022-07-05,2022-10-25,https://image.shutterstock.com/image-photo/sliced-watermelon-on-wooden-nature-600w-1667459722.jpg

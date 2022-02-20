@@ -3,32 +3,29 @@
 
 {% block body %}
 <div class="container">
+    <h1>Vegetable Specific Guidelines</h1>
+    <hr>
     <div class="row">
         <div class="col">
-
-            <h1>Vegetable Specific Guidelines</h1>
-            <hr>
-
-            <div class="card">
-                <div class="card-body">
+            <div class="card-sm-4 border border-dark">
+                <div class="card-body bg-secondary ">
                     <h5 class="card-title">{{ vegetable }}</h5>
                     <hr>
                     <p class="text">Sow Type: {{ sow_type }}</p>
                     <p class="text">Harvest Days: {{ harvest_days }}</p>
-                    <p class="text-muted">Plant Spacing: {{ plant_spacing }} Inches</p>
-                    <p class="text-muted">Seed Planting Depth: {{ seed_depth }} Inches</p>
+                    <p class="text">Plant Spacing: {{ plant_spacing }} Inches</p>
+                    <p class="text">Seed Planting Depth: {{ seed_depth }} Inches</p>
                     {% if sow_type == "Direct" %}
-                    <p class="text-muted">Direct Window Sow Start: {{ window_start }}</p>
-                    <p class="text-muted">Direct Window Sow End: {{ window_end }}</p>
+                    <p class="text">Direct Window Sow Start: {{ window_start }}</p>
+                    <p class="text">Direct Window Sow End: {{ window_end }}</p>
                     {% else %}
-                    <p class="text-muted">Transplant Start: {{ window_start }}</p>
-                    <p class="text-muted">Transplant Window End: {{ window_end }}</p>
+                    <p class="text">Transplant Start: {{ window_start }}</p>
+                    <p class="text">Transplant Window End: {{ window_end }}</p>
                     {% endif %}
-                    <p class="text-muted">Harvest Window Start: {{ harvest_window_start }}</p>
-                    <p class="text-muted">Harvest Window End: {{ harvest_window_end }}</p>
+                    <p class="text">Harvest Window Start: {{ harvest_window_start }}</p>
+                    <p class="text">Harvest Window End: {{ harvest_window_end }}</p>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
