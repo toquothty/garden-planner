@@ -7,21 +7,20 @@
     <hr>
 </section>
 
-
 <section class="flex-container">
     {% for key, value in tasks.items() %}
     {% if value == "Direct" %}
-    <div class="card">
+    <div class="card border border-dark">
         <a href="/list/{{ key }}" class="btn btn-info" role="button"> {{ key }} can be Direct Sown Today
         </a>
     </div>
     {% elif value == "Transplant" %}
-    <div class="card">
+    <div class="card border border-dark">
         <a href="/list/{{ key }}" class="btn btn-info" role="button"> {{ key }} can be Transplanted Today
         </a>
     </div>
     {% elif value == "Harvest" %}
-    <div class="card">
+    <div class="card border border-dark">
         <a href="/list/{{ key }}" class="btn btn-info" role="button"> {{ key }} can be Harvested Today
         </a>
     </div>

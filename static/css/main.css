@@ -18,3 +18,22 @@
     text-align: center;
 }
 
+body {
+    background: #3e4649;
+    color: #EDF0F0;
+  }
+
+.h-90.p-5 {
+    color: #EDF0F0;
+}
+
+
+h1 {
+    color: #EDF0F0;
+}
+
+.btn {
+    background: #91A395;
+    border-color: #3e4649;
+    position: center;
+}
