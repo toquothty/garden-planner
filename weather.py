@@ -19,14 +19,14 @@ def weather():
         # Periods is a time period as defined by NWS's API
         for period in json_response["properties"]["periods"]:
             # Gather three periods of forecast data and append to previously defined list
-            if period["number"] <= 3:
+            if period["number"] <= 4:
                 current_period = period["name"]
                 temp = period["temperature"]
-                detailed_forecast = period["detailedForecast"]
+                short_forecast = period["shortForecast"]
                 pic = period["icon"]
                 time_period.append(current_period)
                 temperature.append(temp)
-                forecast.append(detailed_forecast)
+                forecast.append(short_forecast)
                 temp_icon.append(pic)
 
     except requests.exceptions.RequestException as err:
