@@ -27,17 +27,6 @@ class Garden_DB(db.Model):
 
 
 # Establish the homepage URLs
-@app.route("/forecast", methods=["GET"])
-def forecast():
-    # Utilize weather.py to grab the forecast for the next three time periods as defined by NWS
-    time_period, temperature, forecast, temp_icon = weather()
-    return render_template(
-        "forecast.html",
-        time_period=time_period,
-        temperature=temperature,
-        forecast=forecast,
-        temp_icon=temp_icon,
-    )
 
 
 # Create a page to list all vegetables listed in the database
@@ -45,9 +34,16 @@ def forecast():
 @app.route("/", methods=["GET"])
 @app.route("/index", methods=["GET"])
 @app.route("/home", methods=["GET"])
+def home_page():
+    return render_template("home.html")
+
+
+# Create a page to list all vegetables listed in the database
+# Utilize this page to link to individual vegetable detail URLs
+@app.route("/list", methods=["GET"])
 def display_vegetables():
     vegetables = Garden_DB.query.order_by(Garden_DB.id).all()
-    return render_template("home.html", vegetables=vegetables)
+    return render_template("list.html", vegetables=vegetables)
 
 
 # Use jinja templating to dynamically build URL based on vegetable clicked in /list
@@ -127,6 +123,20 @@ def display_tasks():
     return render_template("todays-tasks.html", tasks=render_task_dict)
 
 
+# Display the forecast and URL method
+@app.route("/forecast", methods=["GET"])
+def forecast():
+    # Utilize weather.py to grab the forecast for the next three time periods as defined by NWS
+    time_period, temperature, forecast, temp_icon = weather()
+    return render_template(
+        "forecast.html",
+        time_period=time_period,
+        temperature=temperature,
+        forecast=forecast,
+        temp_icon=temp_icon,
+    )
+
+
 # Removing access to this method until login features are added.
 # @app.route("/update", methods=["POST", "GET"])
 
@@ -168,4 +178,5 @@ def display_tasks():
 
 
 if __name__ == "__main__":
+
     app.run()
