@@ -18,7 +18,7 @@
     </title>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #91A395;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('display_vegetables') }}">
+            <a class="navbar-brand" href="{{ url_for('home_page') }}">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" alt="" width="34"
                     height="28" class="d-inline-block align-text-top">
                 VA Garden Planner
@@ -29,7 +29,8 @@
             </button>
             <nav class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <nav class="navbar-nav">
-                    <a class="nav-link active" href="{{ url_for('display_vegetables') }}">Home</a>
+                    <a class="nav-link active" href="{{ url_for('home_page') }}">Home</a>
+                    <a class="nav-link active" href="{{ url_for('display_vegetables') }}">Vegetables</a>
                     <a class="nav-link active" aria-current="page" href="{{ url_for('forecast') }}">Forecast</a>
                     <a class="nav-link active" href="{{ url_for('display_tasks') }}">Things to do</a>
                 </nav>
@@ -43,10 +44,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     {% block body %}{% endblock %}
 
 </body>
+
+<footer class="footer">
+    <div class="text-center p-3" style="background-color:#91A395">
+        <a class="social-icon" href="https://github.com/toquothty" target="_blank">
+            <ion-icon name="logo-github" size="large"></ion-icon>
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com/in/ttoquothty/" target="_blank">
+            <ion-icon name="logo-linkedin" size="large"></ion-icon>
+            <a class="social-icon" href="mailto:tltoquothty@gmail.com" target="_blank">
+                <ion-icon name="mail" size="large"></ion-icon>
+            </a>
+    </div>
+</footer>
 
 </html>
