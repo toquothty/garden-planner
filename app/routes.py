@@ -1,32 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template
+from database.models import Garden_DB, db
+from app import app
 from datetime import datetime, date
-from weather import weather
-
-# Establish basic global paramters
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
-db = SQLAlchemy(app)
-
-# Establish the database class/model
-class Garden_DB(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    vegetable = db.Column(db.String(200), nullable=False)
-    sow_type = db.Column(db.String)  # Direct, Indoors, key used to filter later
-    harvest_days = db.Column(db.Integer)  # How many days to harvest
-    plant_spacing = db.Column(db.Integer)  # Inches between plants
-    seed_depth = db.Column(db.Integer)  # Inches for seed depth
-    sow_window_start = db.Column(db.String)  # Window to sow, regardless of sow type
-    sow_window_end = db.Column(db.String)  # Window to sow, regardless of sow type
-    transplant_window_start = db.Column(db.String)  # Window to transplant if applicable
-    transplant_window_end = db.Column(db.String)  # Window to transplant if applicable
-    harvest_window_start = db.Column(db.String)  # Window to harvest
-    harvest_window_end = db.Column(db.String)  # Window to harvest
-    vegetable_picture_url = db.Column(db.String)  # Public URL for vegetable picture
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-
-
-# Establish the homepage URLs
+from app.weather import weather
 
 
 # Create a page to list all vegetables listed in the database
@@ -135,48 +111,3 @@ def forecast():
         forecast=forecast,
         temp_icon=temp_icon,
     )
-
-
-# Removing access to this method until login features are added.
-# @app.route("/update", methods=["POST", "GET"])
-
-# def update_vegetable():
-#     if request.method == "POST":
-#         vegetable_creation = request.form["vegetable"].title()
-#         sow_type_creation = request.form["sow_type"].title()
-#         harvest_days_creation = request.form["harvest_days"]
-#         plant_spacing_creation = request.form["plant_spacing"]
-#         seed_depth_creation = request.form["seed_depth"]
-#         sow_window_begin = request.form["sow_window_start"]
-#         sow_window_close = request.form["sow_window_end"]
-#         transplant_window_begin = request.form["transplant_window_start"]
-#         transplant_window_close = request.form["transplant_window_end"]
-#         harvest_window_begin = request.form["harvest_window_start"]
-#         harvest_window_close = request.form["harvest_window_end"]
-#         new_vegetable = Garden_DB(
-#             vegetable=vegetable_creation,
-#             sow_type=sow_type_creation,
-#             harvest_days=harvest_days_creation,
-#             plant_spacing=plant_spacing_creation,
-#             seed_depth=seed_depth_creation,
-#             sow_window_start=sow_window_begin,
-#             sow_window_end=sow_window_close,
-#             transplant_window_start=transplant_window_begin,
-#             transplant_window_end=transplant_window_close,
-#             harvest_window_start=harvest_window_begin,
-#             harvest_window_end=harvest_window_close,
-#         )
-
-#         try:
-#             db.session.add(new_vegetable)
-#             db.session.commit()
-#             return redirect("/all")
-#         except Exception as ex:
-#             return ex
-#     else:
-#         return render_template("update.html")
-
-
-if __name__ == "__main__":
-
-    app.run()
