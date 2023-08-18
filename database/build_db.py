@@ -5,7 +5,7 @@ from datetime import datetime, date
 
 import csv
 
-engine = create_engine("sqlite:///database.db")
+engine = create_engine("sqlite:///app/database.db")
 
 Base = declarative_base()
 
@@ -71,3 +71,4 @@ with open("garden_data.csv", encoding="utf-8", newline="") as csv_file:
         # Stage and commit per vegetable in loop
         session.add(create_vegetable)
         session.commit()
+
